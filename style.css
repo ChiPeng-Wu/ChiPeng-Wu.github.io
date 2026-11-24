@@ -189,9 +189,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   word-break: break-all;
 }
 .mail:hover { background-position: -100% 0; }
-.socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px; color: var(--muted); }
-.socials a { position: relative; transition: color .2s; }
-.socials a:hover { color: var(--fg); }
 
 .footer { display: flex; justify-content: space-between; padding: 28px var(--gutter); border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
 
