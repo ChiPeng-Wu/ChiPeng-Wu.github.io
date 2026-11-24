@@ -66,7 +66,7 @@ window.PROJECTS = [
     category: "3D 動畫",
     year: 2026,
     client: "燈光練習 · Maya",
-    role: "燈光 · LookDev",
+    role: "獨立製作",
     description: "森林大樹下的小屋，陽光穿過枝葉灑落。練習戶外自然光與場景氛圍營造。",
     video: "videos/tree-and-house.mp4",
     frameAt: 1,
