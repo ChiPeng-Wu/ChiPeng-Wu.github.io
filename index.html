@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>吳淇芃 ChiPeng Wu — 3D Generalist / Technical Artist</title>
+  <meta name="description" content="吳淇芃 ChiPeng Wu 作品集：3D Generalist / Technical Artist，專精燈光、LookDev、渲染與 USD 製作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#top" class="logo">吳淇芃<span>.</span></a>
+    <nav>
+      <a href="#work-3d">3D</a>
+      <a href="#work-2d">2D</a>
+      <a href="#about">關於</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="letterbox top" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow reveal">3D Generalist / Technical Artist · Taoyuan</p>
+        <h1 class="hero-title reveal">
+          <span>讓畫面</span>
+          <span class="outline">動起來</span>
+          <span>說故事。</span>
+        </h1>
+        <p class="hero-sub reveal">專精燈光、LookDev 與渲染，熟悉 Houdini 與 USD 製作流程。<br>用光影與節奏，把想法變成會呼吸的畫面。</p>
+        <div class="hero-actions reveal">
+          <button class="btn primary" id="reelBtn" type="button">
+            <span class="play" aria-hidden="true"></span> 觀看 Showreel
+          </button>
+          <a class="btn ghost" href="#work-3d">瀏覽作品</a>
+        </div>
+      </div>
+      <div class="timecode" aria-hidden="true"><span id="tc">00:00:00:00</span> · REC</div>
+      <div class="letterbox bottom" aria-hidden="true"></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Houdini</span><span>USD</span><span>Maya</span><span>Nuke</span><span>Unreal Engine</span><span>After Effects</span>
+        <span>Houdini</span><span>USD</span><span>Maya</span><span>Nuke</span><span>Unreal Engine</span><span>After Effects</span>
+      </div>
+    </div>
+
+    <!-- WORK：作品依 projects.js 的 type（"3D" / "2D"）自動分到這兩區 -->
+    <section class="section work" id="work-3d" data-type="3D">
+      <div class="section-head">
+        <h2 class="reveal"><span class="num">01</span>3D 作品</h2>
+        <div class="filters reveal" role="tablist" aria-label="3D 作品分類"></div>
+      </div>
+      <div class="grid"></div>
+    </section>
+
+    <section class="section work" id="work-2d" data-type="2D">
+      <div class="section-head">
+        <h2 class="reveal"><span class="num">02</span>2D 作品</h2>
+        <div class="filters reveal" role="tablist" aria-label="2D 作品分類"></div>
+      </div>
+      <div class="grid"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <h2 class="reveal"><span class="num">03</span>關於我</h2>
+      <div class="about-grid">
+        <div class="portrait reveal">
+          <img src="images/portrait.jpg" alt="吳淇芃 ChiPeng Wu 個人照片" width="800" height="1000" loading="lazy">
+        </div>
+        <div class="about-text">
+          <p class="lead reveal">嗨，我是 <strong>吳淇芃</strong>（ChiPeng Wu），一名 3D Generalist / Technical Artist，也是多媒體動畫師。</p>
+          <p class="reveal">我畢業於紐西蘭維多利亞大學（Victoria University of Wellington），取得設計科技碩士（Master of Design Technology）；大學就讀台灣銘傳大學數位媒體設計學系。專長是燈光與渲染，擅長寫實燈光、PBR 流程與 MetaHuman，並特別在意光線如何塑造畫面的氛圍與質感。</p>
+          <p class="reveal">在 5 分鐘團隊動畫短片《The Protector》中，我在 USD 流程裡負責 LookDev、燈光、場景組裝與品質控管，也擔任 Layout 與 Lighting 部門之間的技術橋樑。我也參與 MetaHuman 研究，探討從 Unreal Engine 轉換到 Houdini 時，如何透過燈光與材質調整維持寫實感，研究已投稿 SIGGRAPH。</p>
+          <div class="stats reveal">
+            <div><b>2025–26</b><span>維多利亞大學 設計科技碩士</span></div>
+            <div><b>2020–24</b><span>銘傳大學 數位媒體設計</span></div>
+            <div><b>SIGGRAPH</b><span>MetaHuman 研究投稿</span></div>
+          </div>
+          <ul class="skills reveal">
+            <li>燈光</li><li>LookDev</li><li>渲染優化</li><li>USD 流程</li><li>場景組裝</li><li>3D</li><li>MG 動畫</li><li>剪輯</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <h2 class="reveal"><span class="num">04</span>一起合作</h2>
+      <a class="mail reveal" href="mailto:hcc986c20@gmail.com">hcc986c20@gmail.com</a>
+      <div class="socials reveal">
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">Vimeo</a>
+        <a href="#" target="_blank" rel="noopener">Behance</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> 吳淇芃</span>
+    <a href="#top">回到頂端 ↑</a>
+  </footer>
+
+  <!-- VIDEO MODAL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box">
+      <button class="modal-close" type="button" data-close aria-label="關閉">✕</button>
+      <div class="modal-media" id="modalMedia"></div>
+      <div class="modal-info">
+        <div>
+          <h3 id="modalTitle"></h3>
+          <p id="modalMeta" class="meta"></p>
+        </div>
+        <div>
+          <p id="modalDesc"></p>
+          <a id="modalLink" class="ext-link" target="_blank" rel="noopener" hidden>在新分頁開啟影片 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
