@@ -115,6 +115,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: clamp(20px, 3vw, 36px); }
 .work + .work { padding-top: clamp(40px, 6vw, 80px); }
+
+/* 分類小標題區塊 */
+.subgroup + .subgroup { margin-top: clamp(56px, 7vw, 96px); }
+.subhead {
+  display: flex; align-items: baseline; gap: 14px;
+  padding-bottom: 14px; margin-bottom: clamp(20px, 3vw, 32px);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: .02em;
+}
+.subhead::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); align-self: center; }
+.subhead small { margin-left: auto; color: var(--muted); font-size: .8rem; font-weight: 500; letter-spacing: .15em; }
 .grid-empty {
   grid-column: 1 / -1; padding: 56px 24px; text-align: center; color: var(--muted);
   border: 1px dashed var(--line); border-radius: var(--radius); letter-spacing: .1em;

@@ -39,7 +39,7 @@ window.PROJECTS = [
   {
     title: "Desk by the Window",
     type: "3D",
-    category: "燈光",
+    category: "3D 動畫",
     year: 2026,
     client: "燈光練習 · Maya",
     role: "燈光 · LookDev",
@@ -51,7 +51,7 @@ window.PROJECTS = [
   {
     title: "Light Sketches",
     type: "3D",
-    category: "燈光",
+    category: "3D 動畫",
     year: 2025,
     client: "課程作業 · MDN431",
     role: "燈光 · 渲染（Houdini Karma）",
@@ -63,7 +63,7 @@ window.PROJECTS = [
   {
     title: "Tree and House",
     type: "3D",
-    category: "燈光",
+    category: "3D 動畫",
     year: 2026,
     client: "燈光練習 · Maya",
     role: "燈光 · LookDev",

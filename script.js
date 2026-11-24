@@ -95,29 +95,33 @@
       return;
     }
 
-    // 分類按鈕：同一區有兩種以上分類才顯示
+    // 同一區有兩種以上分類：依分類拆成有小標題的區塊（順序依 projects.js 中第一次出現的順序）
+    filtersEl.remove();
     const cats = [...new Set(list.map((p) => p.category))];
-    if (cats.length < 2) filtersEl.remove();
-    else ["全部", ...cats].forEach((c, i) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.textContent = c;
-      b.setAttribute("role", "tab");
-      b.setAttribute("aria-selected", i === 0);
-      b.addEventListener("click", () => {
-        filtersEl.querySelectorAll("button").forEach((x) => x.setAttribute("aria-selected", x === b));
-        grid.querySelectorAll(".card").forEach((card) => {
-          card.classList.toggle("hidden", c !== "全部" && card.dataset.cat !== c);
-        });
-      });
-      filtersEl.appendChild(b);
+    if (cats.length < 2) {
+      list.forEach((p, i) => grid.appendChild(makeCard(p, i)));
+      return;
+    }
+    cats.forEach((c) => {
+      const items = list.filter((p) => p.category === c);
+      const group = document.createElement("div");
+      group.className = "subgroup";
+      const head = document.createElement("h3");
+      head.className = "subhead reveal";
+      head.innerHTML = `<span></span><small></small>`;
+      head.querySelector("span").textContent = c;
+      head.querySelector("small").textContent = String(items.length).padStart(2, "0");
+      const g = document.createElement("div");
+      g.className = "grid";
+      items.forEach((p, i) => g.appendChild(makeCard(p, i, true)));
+      group.append(head, g);
+      grid.before(group);
     });
-
-    list.forEach((p, i) => grid.appendChild(makeCard(p, i)));
+    grid.remove();
   });
 
   /* ---------- Card ---------- */
-  function makeCard(p, i) {
+  function makeCard(p, i, grouped) {
     const card = document.createElement("button");
     card.type = "button";
     card.className = "card reveal";
@@ -168,7 +172,8 @@
     info.className = "card-info";
     info.innerHTML = `<h3></h3><span class="meta"></span>`;
     info.querySelector("h3").textContent = p.title;
-    info.querySelector(".meta").textContent = `${p.category} · ${p.year}`;
+    // 已在分類小標題底下時，卡片只顯示年份
+    info.querySelector(".meta").textContent = grouped ? `${p.year}` : `${p.category} · ${p.year}`;
 
     card.append(thumb, info);
     card.addEventListener("click", () =>
