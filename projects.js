@@ -138,6 +138,18 @@ window.PROJECTS = [
     colors: ["#b8913a", "#202226"],
   },
   {
+    title: "Spirit Train",
+    type: "3D",
+    category: "3D 動畫",
+    year: 2025,
+    client: "課程作業 · MDDN451",
+    role: "建模 · 骨架",
+    description: "練習 Animation 的動畫。",
+    thumb: "images/spirit-train.jpg",
+    video: "videos/spirit-train.mp4",
+    colors: ["#c9a05a", "#16130f"],
+  },
+  {
     title: "貨櫃場 CG 合成",
     type: "3D",
     category: "CG 合成",
