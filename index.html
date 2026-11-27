@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261127c">
+  <link rel="stylesheet" href="style.css?v=20261127d">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -42,7 +42,7 @@
           <a class="btn ghost" href="#work-3d">瀏覽作品</a>
         </div>
       </div>
-      <!-- 五格軟體動畫：每格一個使用的軟體，各有不同的動態效果 -->
+      <!-- 六格軟體動畫：每格一個使用的工具，各有不同的動態效果 -->
       <div class="hero-panels" aria-hidden="true">
         <div class="hp hp-ae" style="--i:0">
           <div class="hp-flow"></div>
@@ -73,6 +73,20 @@
           <canvas class="hp-canvas" data-fx="sparks"></canvas>
           <div class="hp-icon tile nuke"><span>N</span></div>
           <span class="hp-label">Nuke</span>
+        </div>
+        <div class="hp hp-claude" style="--i:5">
+          <div class="pulse"></div><div class="pulse p2"></div><div class="pulse p3"></div>
+          <div class="hp-icon spark">
+            <svg viewBox="-50 -50 100 100">
+              <g>
+                <line y2="-40" transform="rotate(0)"/><line y2="-30" transform="rotate(30)"/><line y2="-38" transform="rotate(60)"/>
+                <line y2="-28" transform="rotate(90)"/><line y2="-40" transform="rotate(120)"/><line y2="-31" transform="rotate(150)"/>
+                <line y2="-37" transform="rotate(180)"/><line y2="-29" transform="rotate(210)"/><line y2="-40" transform="rotate(240)"/>
+                <line y2="-30" transform="rotate(270)"/><line y2="-36" transform="rotate(300)"/><line y2="-28" transform="rotate(330)"/>
+              </g>
+            </svg>
+          </div>
+          <span class="hp-label">Claude</span>
         </div>
       </div>
       <div class="timecode" aria-hidden="true"><span id="tc">00:00:00:00</span> · REC</div>
