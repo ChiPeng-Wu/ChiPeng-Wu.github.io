@@ -182,6 +182,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hp-nuke { --c: 245, 176, 66; }
 .tile.nuke { background: linear-gradient(160deg, #3a2608, #1a1104); }
 
+@media (max-width: 1300px) { .hero-panels { width: 40vw; gap: 8px; } }   /* 中等寬度讓出左側文字 */
 @media (max-width: 1000px) {
   .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
   .hero-panels { position: relative; inset: auto; width: 100%; height: clamp(170px, 32vw, 240px); margin-top: 44px; gap: 6px; }
