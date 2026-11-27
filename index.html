@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261127">
+  <link rel="stylesheet" href="style.css?v=20261127b">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -40,6 +40,39 @@
             <span class="play" aria-hidden="true"></span> 觀看 Showreel
           </button>
           <a class="btn ghost" href="#work-3d">瀏覽作品</a>
+        </div>
+      </div>
+      <!-- 五格軟體動畫：每格一個使用的軟體，各有不同的動態效果 -->
+      <div class="hero-panels" aria-hidden="true">
+        <div class="hp hp-ae" style="--i:0">
+          <div class="hp-flow"></div>
+          <div class="hp-icon tile ae"><span>Ae</span></div>
+          <span class="hp-label">After Effects</span>
+        </div>
+        <div class="hp hp-hou" style="--i:1">
+          <canvas class="hp-canvas" data-fx="vortex"></canvas>
+          <div class="hp-icon swirl">
+            <svg viewBox="0 0 100 100">
+              <circle class="r1" cx="50" cy="50" r="40"/><circle class="r2" cx="50" cy="50" r="29"/>
+              <circle class="r3" cx="50" cy="50" r="18"/><circle class="r4" cx="50" cy="50" r="8"/>
+            </svg>
+          </div>
+          <span class="hp-label">Houdini</span>
+        </div>
+        <div class="hp hp-maya" style="--i:2">
+          <div class="hp-grid"></div>
+          <div class="hp-icon tile maya"><span>M</span></div>
+          <span class="hp-label">Maya</span>
+        </div>
+        <div class="hp hp-ps" style="--i:3">
+          <div class="orb o1"></div><div class="orb o2"></div>
+          <div class="hp-icon tile ps"><span>Ps</span></div>
+          <span class="hp-label">Photoshop</span>
+        </div>
+        <div class="hp hp-nuke" style="--i:4">
+          <canvas class="hp-canvas" data-fx="sparks"></canvas>
+          <div class="hp-icon tile nuke"><span>N</span></div>
+          <span class="hp-label">Nuke</span>
         </div>
       </div>
       <div class="timecode" aria-hidden="true"><span id="tc">00:00:00:00</span> · REC</div>
@@ -127,5 +160,6 @@
 
   <script src="projects.js?v=20261127"></script>
   <script src="script.js?v=20261127"></script>
+  <script src="hero-panels.js?v=20261127b"></script>
 </body>
 </html>

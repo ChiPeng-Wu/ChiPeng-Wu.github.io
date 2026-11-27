@@ -94,6 +94,103 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .timecode::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; margin-right: 10px; animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 50% { opacity: 0; } }
 
+/* Hero 五格軟體動畫 */
+.hero-panels {
+  position: absolute; z-index: 0;
+  top: calc(6vh + 96px); bottom: calc(6vh + 64px); right: var(--gutter);
+  width: min(46vw, 820px);
+  display: flex; gap: 10px;
+}
+.hp {
+  --c: 255, 255, 255;
+  flex: 1 1 0; min-width: 0; position: relative; overflow: hidden; isolation: isolate;
+  border-radius: var(--radius); border: 1px solid var(--line); background: #0f0f12;
+  opacity: 0; transform: translateY(105%);
+  animation: hpIn 1.1s cubic-bezier(.2, .8, .2, 1) forwards;
+  animation-delay: calc(1.1s + var(--i) * .12s);
+  transition: flex-grow .7s cubic-bezier(.2, .8, .2, 1), border-color .4s;
+}
+@keyframes hpIn { to { opacity: 1; transform: none; } }
+.hero-panels:hover .hp { flex-grow: .75; }
+.hero-panels .hp:hover { flex-grow: 2.2; border-color: rgba(var(--c), .45); }
+.hp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hp-label {
+  position: absolute; left: 0; right: 0; bottom: 16px; padding: 0 6px; text-align: center;
+  font: 500 .68rem/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(var(--c), .8);
+}
+.hp-icon {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 2;
+  animation: hpFloat 5s ease-in-out infinite; animation-delay: calc(var(--i) * -.9s);
+}
+@keyframes hpFloat { 50% { transform: translateY(-8px); } }
+.tile {
+  position: relative; width: 68px; height: 68px; border-radius: 18px; display: grid; place-items: center;
+  font: 800 1.7rem/1 "Inter", sans-serif; letter-spacing: -.02em;
+  color: rgb(var(--c)); border: 1.5px solid rgba(var(--c), .9);
+  box-shadow: 0 0 36px rgba(var(--c), .45), 0 18px 40px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+.tile::after {                                   /* 玻璃光澤 */
+  content: ""; position: absolute; inset: 2px 2px 50% 2px; border-radius: 15px 15px 40% 40%;
+  background: linear-gradient(rgba(255, 255, 255, .22), transparent); pointer-events: none;
+}
+
+/* 1. After Effects：流動漸層 */
+.hp-ae { --c: 153, 153, 255; }
+.tile.ae { background: linear-gradient(160deg, #1d1270, #00005b); }
+.hp-flow {
+  position: absolute; inset: -20%; z-index: -1; opacity: .55; filter: blur(30px);
+  background: linear-gradient(165deg, #2a1a8f, #ff4fa3, #ff9a3c, #6b5cff, #2a1a8f, #ff4fa3);
+  background-size: 100% 300%;
+  animation: hpFlow 10s ease-in-out infinite alternate;
+}
+@keyframes hpFlow { to { background-position: 0 100%; } }
+@keyframes hpSpin { to { transform: rotate(1turn); } }
+
+/* 2. Houdini：粒子漩渦 + 旋轉圓環 */
+.hp-hou { --c: 255, 110, 50; }
+.swirl svg { width: 84px; height: 84px; overflow: visible; filter: drop-shadow(0 0 12px rgba(255, 90, 30, .8)); }
+.swirl circle { fill: none; stroke: #ff5a1f; stroke-linecap: round; transform-origin: 50% 50%; }
+.swirl .r1 { stroke-width: 5; stroke-dasharray: 170 82; animation: hpSpin 6s linear infinite; }
+.swirl .r2 { stroke-width: 5; stroke-dasharray: 110 72; animation: hpSpin 4.5s linear infinite reverse; stroke: #ff7a2f; }
+.swirl .r3 { stroke-width: 5; stroke-dasharray: 70 43; animation: hpSpin 3s linear infinite; stroke: #ff9a40; }
+.swirl .r4 { stroke-width: 6; stroke-dasharray: 30 20; animation: hpSpin 2s linear infinite reverse; stroke: #ffc070; }
+
+/* 3. Maya：透視網格 */
+.hp-maya { --c: 55, 208, 200; background: linear-gradient(#0a1416, #0f0f12 60%); }
+.tile.maya { background: linear-gradient(160deg, #0d4a52, #062a30); }
+.hp-grid {
+  position: absolute; left: -150%; right: -150%; top: 48%; bottom: -20%; z-index: -1;
+  background-image: linear-gradient(rgba(55, 208, 200, .45) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(55, 208, 200, .45) 1px, transparent 1px);
+  background-size: 18px 18px;
+  transform: perspective(420px) rotateX(64deg); transform-origin: 50% 0;
+  -webkit-mask-image: linear-gradient(transparent, #000 45%); mask-image: linear-gradient(transparent, #000 45%);
+  animation: hpGrid 2.4s linear infinite;
+}
+@keyframes hpGrid { to { background-position: 0 18px; } }
+
+/* 4. Photoshop：漂浮光球 */
+.hp-ps { --c: 49, 168, 255; background: radial-gradient(120% 70% at 50% 100%, #0b2a4a, #0f0f12 70%); }
+.tile.ps { background: linear-gradient(160deg, #04355c, #001e36); }
+.orb { position: absolute; border-radius: 50%; z-index: -1; filter: blur(1px); }
+.orb.o1 { width: 120px; height: 120px; left: -30px; top: 16%; background: radial-gradient(circle at 35% 35%, #7cc8ff, #1a6dff 60%, transparent 72%); animation: hpOrb 9s ease-in-out infinite; }
+.orb.o2 { width: 90px; height: 90px; right: -20px; bottom: 22%; background: radial-gradient(circle at 35% 35%, #b6e3ff, #2f8cff 60%, transparent 72%); animation: hpOrb 7s ease-in-out infinite reverse; }
+@keyframes hpOrb { 50% { transform: translate(24px, -36px) scale(1.12); } }
+
+/* 5. Nuke：閃爍粒子 */
+.hp-nuke { --c: 245, 176, 66; }
+.tile.nuke { background: linear-gradient(160deg, #3a2608, #1a1104); }
+
+@media (max-width: 1000px) {
+  .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  .hero-panels { position: relative; inset: auto; width: 100%; height: clamp(170px, 32vw, 240px); margin-top: 44px; gap: 6px; }
+  .tile { width: 46px; height: 46px; border-radius: 13px; font-size: 1.15rem; }
+  .swirl svg { width: 56px; height: 56px; }
+  .hp-label { font-size: .58rem; letter-spacing: .08em; bottom: 10px; }
+}
+@media (max-width: 480px) { .hp-label { display: none; } }
+
 /* Marquee */
 .marquee { border-block: 1px solid var(--line); overflow: hidden; padding: 22px 0; }
 .marquee-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
@@ -249,4 +346,5 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
   .letterbox { height: 6vh; }
+  .hp { opacity: 1; transform: none; }
 }
