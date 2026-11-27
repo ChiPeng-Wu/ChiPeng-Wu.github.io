@@ -163,6 +163,14 @@
       card.addEventListener("mouseleave", () => { vid.pause(); vid.currentTime = frameAt; });
     }
 
+    // 獲獎／入選標籤
+    if (p.award) {
+      const award = document.createElement("span");
+      award.className = "award";
+      award.textContent = p.award;
+      thumb.appendChild(award);
+    }
+
     const playIcon = document.createElement("span");
     playIcon.className = "thumb-play";
     playIcon.setAttribute("aria-hidden", "true");
@@ -180,7 +188,7 @@
       openModal({
         title: p.title,
         meta: [p.client, p.role, p.year].filter(Boolean).join(" · "),
-        desc: p.description,
+        desc: p.award ? `${p.award}\n\n${p.description}` : p.description,
         video: p.video,
         colors: p.colors,
         vertical: p.vertical,

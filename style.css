@@ -153,6 +153,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background: rgba(241, 237, 230, .95); transform: translate(-50%, -50%) scale(.6); opacity: 0; transition: all .35s cubic-bezier(.2, .7, .2, 1);
 }
 .thumb-play::before { content: ""; position: absolute; left: 26px; top: 21px; border-left: 16px solid #000; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+.award {
+  position: absolute; left: 14px; top: 14px; z-index: 2;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(10, 10, 10, .72); border: 1px solid rgba(232, 180, 90, .55);
+  color: var(--accent); font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+  backdrop-filter: blur(6px);
+}
 .card:hover .thumb-play, .card:focus-visible .thumb-play { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: var(--radius); }
 .card-info { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 4px 0; }
@@ -216,7 +223,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .modal-info { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px; padding: 28px; }
 .modal-info h3 { font-size: 1.5rem; line-height: 1.2; }
 .modal-info .meta { white-space: normal; margin-top: 6px; display: block; }
-#modalDesc { color: var(--muted); }
+#modalDesc { color: var(--muted); white-space: pre-line; }
 .ext-link { display: inline-block; margin-top: 12px; font-size: .85rem; color: var(--accent); }
 .ext-link:hover { text-decoration: underline; }
 .ext-link[hidden] { display: none; }
